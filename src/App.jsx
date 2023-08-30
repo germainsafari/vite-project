@@ -43,10 +43,10 @@ export default function App() {
   }
 
   return (
-    <>
+    <div className="app-container">
       <NewTodoForm onSubmit={addTodo} />
       <h1 className="header">Todo List</h1>
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
-    </>
+    </div>
   )
 }
