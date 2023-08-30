@@ -1,17 +1,21 @@
 import { useState } from "react"
-function handleSubmit (e) {
-    e.preventDefault()
 
-    setTodos( (currentTodos) => {
-        return [
-          [...todos, 
-            {id:crypto.randomUUID(), title: newItem, completed:false},
-        ]
-    ]})
-    setNewItem("")
-  }
+export function newTodoForm(props) {
+    const [newItem, setNewItem] = useState("")
+
+
+
+    function handleSubmit (e) {
+        e.preventDefault()
+        if (newItem == "")  return 
+
+        onsubmit(newItem)
+
+        setNewItem("")
+    }
   
-export function newTodoForm() {
+
+
     return (
         <form onSubmit={handleSubmit} className="new-item-form">
     <div className="row">
@@ -22,5 +26,5 @@ export function newTodoForm() {
     <button className="btn">Add</button>
     </form>
     )
-    
+
 }
